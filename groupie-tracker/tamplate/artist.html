@@ -59,44 +59,42 @@
         }
     </style>
 </head>
-<body>
-
-<div class="container">
-    <!-- Header Section -->
-    <div class="header">
-        <img src="{{.ArtistData.Image}}" alt="{{.ArtistData.Name}}">
-        <h1>{{.ArtistData.Name}}</h1>
-    </div>
-
-    <!-- Artist Information Section -->
-    <div class="artist-info">
-        <p><strong>Members:</strong> <td> {{range .ArtistData.Members}} {{.}}{{end}} </td> </p>
-        <p><strong>Creation Year:</strong> {{.ArtistData.Creation}}</p>
-        <p><strong>First Album:</strong> {{.ArtistData.FirstAlbum}}</p>
-    </div>
-
-    <!-- Dates and Locations Section -->
-    <div class="dates-locations">
-        <h2>Concert Dates and Locations</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Location</th>
-                    <th>Concert Dates</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{range $location, $dates := .DatesLocations}}
+<body>   
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="{{.ArtistData.Image}}" alt="{{.ArtistData.Name}}">
+            <h1>{{.ArtistData.Name}}</h1>
+        </div>
+    
+        <!-- Artist Information Section -->
+        <div class="artist-info">
+            <p><strong>Members:</strong> <td> {{range .ArtistData.Members}} {{.}} {{end}} </td> </p>
+            <p style="color: rebeccapurple;" > <strong> Creation Year:</strong>{{.ArtistData.Creation}} </p>
+            <p><strong>First Album:</strong>{{.ArtistData.FirstAlbum}}</p>
+        </div>
+    
+        <!-- Dates and Locations Section -->
+        <div class="dates-locations">
+            <h2>Concert Dates and Locations</h2>
+            <table>
+                <thead>
                     <tr>
-                        <td>{{$location}}</td>
-                        <td>{{range $dates}}{{.}} {{end}}</td>
+                        <th>Location</th>
+                        <th>Concert Dates</th>
                     </tr>
-                {{end}}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {{range $location, $dates := .DatesLocations}}
+                        <tr>
+                            <td>{{$location}}</td>
+                            <td>{{range $dates}}{{.}} {{end}}</td>
+                        </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-
+    
 </body>
 </html>
-
